@@ -1,0 +1,40 @@
+<meta charset="utf-8">
+<script type="text/javascript">
+	var n = 0;
+	var answer = '';
+	var question = 'Начнем игру?';
+	var goodEnd = 'Игра окончена и не начавшись!';
+
+	function russianRoulette(){
+			if((Math.random() * 6) < 1){
+			return true;
+		}
+		return false;
+	}
+	
+
+	do{
+		if ( n > 0) {
+			question = 'Вы все еще живы! Продолжим игру?';
+			goodEnd = 'Игра окончена, Вы остались живы! Количетво Ваших попыток ' + n;
+		}
+		answer = prompt(question);
+		if (answer == 'да'){
+			if (russianRoulette()) {
+				alert('Игра окончена! Количество попыток ' + n);
+				break;
+			} 
+			n++;
+		}	
+		else if (answer == 'нет'){
+			alert(goodEnd);
+			break;
+		}
+		else {
+				alert('Я Вас не понимаю, прошу ввести "да" или "нет"');
+			}
+	
+	} while (true)
+
+	
+</script>
